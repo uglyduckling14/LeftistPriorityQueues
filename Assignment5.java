@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Assignment5 {
     public static void main(String[] args) {
-        simpleQueueTest();
-        //scheduleTasks("taskset1.txt");
+        //simpleQueueTest();
+        scheduleTasks("taskset1.txt");
         //scheduleTasks("taskset2.txt");
         //scheduleTasks("taskset3.txt");
         //scheduleTasks("taskset4.txt");
@@ -14,11 +14,11 @@ public class Assignment5 {
 
     public static void scheduleTasks(String taskFile) {
         // TODO: Uncomment code here as you complete the tasks and scheduling algorithm
-//        ArrayList<Task> tasksByDeadline = new ArrayList<>();
-//        ArrayList<Task> tasksByStart = new ArrayList<>();
-//        ArrayList<Task> tasksByDuration = new ArrayList<>();
-//
-//        readTasks(taskFile, tasksByDeadline, tasksByStart, tasksByDuration);
+        ArrayList<Task> tasksByDeadline = new ArrayList<>();
+        ArrayList<Task> tasksByStart = new ArrayList<>();
+        ArrayList<Task> tasksByDuration = new ArrayList<>();
+
+        readTasks(taskFile, tasksByDeadline, tasksByStart, tasksByDuration);
 //
 //        schedule("Deadline Priority : "+ taskFile, tasksByDeadline);
 //        schedule("Startime Priority : " + taskFile, tasksByStart);
@@ -45,7 +45,27 @@ public class Assignment5 {
                                  ArrayList<Task> tasksByDeadline,
                                  ArrayList<Task> tasksByStart,
                                  ArrayList<Task> tasksByDuration) {
-        // TODO: Write your task reading code here
+        try {
+            File file = new File(filename);
+            Scanner scan = new Scanner(file);
+            int i =1;
+            while (scan.hasNextLine()) {
+                String task = scan.nextLine();
+                String[] taskList = task.split("\\s+");
+                Task newstart = new TaskByStart(i, Integer.parseInt(taskList[0]), Integer.parseInt(taskList[1]), Integer.parseInt(taskList[2]));
+                Task newdeadline = new TaskByStart(i, Integer.parseInt(taskList[0]), Integer.parseInt(taskList[1]), Integer.parseInt(taskList[2]));
+                Task newduration = new TaskByStart(i, Integer.parseInt(taskList[0]), Integer.parseInt(taskList[1]), Integer.parseInt(taskList[2]));
+                tasksByDeadline.add(newdeadline);
+                tasksByDuration.add(newduration);
+                tasksByStart.add(newstart);
+                System.out.println(newduration.toString());
+                i++;
+            }
+            scan.close();
+        } catch (Exception e) {
+            System.out.println("File not Found!!!");
+            e.printStackTrace();
+        }
     }
 
     /**

@@ -81,3 +81,6 @@ I will use leftist priority queues to find the most efficient way to complete a 
         }
     }
     Output:
+    apple
+    chicken
+    lemon

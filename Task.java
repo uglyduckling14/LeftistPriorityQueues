@@ -14,4 +14,7 @@ public abstract class Task implements Comparable<Task> {
     public String toString() {
         return "Task " + ID;
     }
+    public int compareTo(Task task){
+        return 0;
+    }
 }
