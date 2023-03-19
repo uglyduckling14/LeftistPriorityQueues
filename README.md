@@ -41,6 +41,22 @@ I will use leftist priority queues to find the most efficient way to complete a 
     public Node<E> right;
     public int npl;
 }
+### Assignment5 class:
+    public static void schedule(String label, ArrayList<Task> tasks) {
+        System.out.println(label);
+        /*first number = start time;
+          second number = deadline;
+          third number = duration;
+         */
+        enqueue all tasks== time;
+        delete root from queue;
+        subtract 1 from duration;
+        if not completed:
+            print( Time+ \t: + root.ID);
+            add root back in;
+        else:
+            print( Time+\t: + root.ID+"**");
+    }
 ## Testing:
     public String print(Node<E> node){
         if(node.right==null) {

@@ -15,6 +15,6 @@ public abstract class Task implements Comparable<Task> {
         return "Task " + ID;
     }
     public int compareTo(Task task){
-        return 0;
+        return -1;
     }
 }
